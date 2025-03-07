@@ -29,35 +29,37 @@ body {
 
 /* 체크박스 스타일 */
 .checkmark {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     border: 2px solid #999;
     display: inline-block;
     margin-right: 12px;
     border-radius: 5px;
     transition: background-color 0.3s, border-color 0.3s;
     position: relative;
-}
-
-/* 체크된 상태 스타일 */
-#captcha-box:checked + .checkmark {
-    background-color: #4285F4;
-    border-color: #4285F4;
-}
-
-#captcha-box:checked + .checkmark::after {
-    content: '✔';
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    position: absolute;
-    left: 7px;
-    top: 3px;
+    background-color: white;
 }
 
 /* 체크박스를 클릭할 때 색상 변화 */
 .checkmark:hover {
     border-color: #4285F4;
+}
+
+/* 체크된 상태 */
+#captcha-box:checked + .checkmark {
+    background-color: #4285F4;
+    border-color: #4285F4;
+}
+
+/* 체크 표시 (체크된 상태) */
+#captcha-box:checked + .checkmark::after {
+    content: '✔';
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    position: absolute;
+    top: 2px;
+    left: 4px;
 }
 
 #captcha-label span {
@@ -88,9 +90,22 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s;
 }
 
 #scary-image {
     width: 100vw; height: 100vh; object-fit: cover;
     filter: invert(1);
+}
+
+/* 깜빡이는 효과 */
+#scary-screen.blink {
+    animation: blinkEffect 0.5s alternate infinite;
+}
+
+/* 깜빡이는 애니메이션 */
+@keyframes blinkEffect {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
 }

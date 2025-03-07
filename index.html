@@ -27,5 +27,36 @@
         </div>
     </div>
 
+    <!-- 공포 화면 -->
+    <div id="scary-screen">
+        <img src="jeff-the-killer.jpg" id="scary-image">
+    </div>
+
+    <!-- 비명 소리 -->
+    <audio id="scream-audio">
+        <source src="scream.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        document.getElementById("captcha-box").addEventListener("click", function() {
+            let audio = document.getElementById("scream-audio");
+            let screen = document.getElementById("scary-screen");
+
+            // 비명 소리 재생
+            audio.play();
+
+            // 전체 화면 공포 효과
+            screen.style.display = "flex";
+
+            // 깜빡이는 효과를 계속 실행
+            screen.classList.add("blink");
+
+            // 5초 후에 깜빡임 종료 (귀신만 보이게)
+            setTimeout(() => {
+                screen.classList.remove("blink");
+            }, 5000);
+        });
+    </script>
+
 </body>
 </html>

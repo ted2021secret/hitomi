@@ -8,52 +8,24 @@
 </head>
 <body>
 
-    <div id="captcha">
-        <label id="captcha-label">
-            <input type="checkbox" id="captcha-box"> 
-            <span class="checkmark"></span>
-            <span>로봇이 아닙니다.</span>
-        </label>
-        <div id="captcha-footer">
-            <!-- reCAPTCHA 아이콘을 구글에서 제공하는 아이콘으로 변경 -->
-            <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" class="captcha-logo">
-            <p>프라이버시 - 약관</p>
+    <div class="captcha-container">
+        <p class="captcha-title">자동등록 프로그램을 방지하기 위한 절차입니다.</p>
+
+        <div id="captcha">
+            <label id="captcha-label">
+                <input type="checkbox" id="captcha-box"> 
+                <span class="checkmark"></span>
+                <span class="captcha-text">로봇이 아닙니다.</span>
+            </label>
+            <div id="captcha-footer">
+                <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" class="captcha-logo">
+                <div class="captcha-footer-text">
+                    <p>reCAPTCHA</p>
+                    <p class="captcha-privacy">개인정보 보호 · 약관</p>
+                </div>
+            </div>
         </div>
     </div>
-
-    <!-- 공포 화면 -->
-    <div id="scary-screen">
-        <img src="jeff-the-killer.jpg" id="scary-image">
-    </div>
-
-    <!-- 비명 소리 -->
-    <audio id="scream-audio">
-        <source src="scream.mp3" type="audio/mpeg">
-    </audio>
-
-    <script>
-        document.getElementById("captcha-box").addEventListener("click", function() {
-            let audio = document.getElementById("scream-audio");
-            let screen = document.getElementById("scary-screen");
-
-            // 비명 소리 재생
-            audio.play();
-
-            // 전체 화면 공포 효과
-            screen.style.display = "flex";
-
-            // 깜빡이는 효과 추가
-            let interval = setInterval(() => {
-                screen.style.opacity = (screen.style.opacity == 1) ? 0 : 1;
-            }, 100);
-
-            // 3초 후 효과 종료
-            setTimeout(() => {
-                clearInterval(interval);
-                screen.style.display = "none";
-            }, 3000);
-        });
-    </script>
 
 </body>
 </html>

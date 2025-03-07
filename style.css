@@ -25,78 +25,86 @@ body {
     margin-bottom: 15px;
 }
 
+/* 캡챠 박스 */
 #captcha { 
     width: 300px;
     border: 1px solid #d3d3d3; 
     background: white;
-    padding: 12px;
+    padding: 10px 12px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    font-size: 16px;
-    user-select: none;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
+/* 체크박스 + 텍스트 정렬 */
 #captcha-label {
     display: flex;
     align-items: center;
     cursor: pointer;
+    flex-grow: 1;
+    position: relative;
 }
 
 #captcha-box {
     display: none;
 }
 
-/* 체크박스 디자인 */
+/* 구글 스타일 체크박스 */
 .checkmark {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     border: 2px solid #999;
     display: inline-block;
     border-radius: 3px;
-    position: relative;
-    margin-right: 10px;
     background: white;
     transition: all 0.2s ease;
+    position: relative;
 }
 
+/* 체크 애니메이션 */
 #captcha-box:checked + .checkmark {
     background: #4285F4;
     border-color: #4285F4;
 }
 
+/* 구글 스타일 체크 아이콘 */
 #captcha-box:checked + .checkmark::after {
-    content: '✔';
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
+    content: '';
     position: absolute;
     left: 5px;
-    top: 1px;
+    top: 3px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
 }
 
-/* 캡챠 텍스트 */
+/* "로봇이 아닙니다." 글씨 크기 및 위치 */
 .captcha-text {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     color: #333;
+    display: flex;
+    align-items: center;
 }
 
 /* reCAPTCHA 하단 */
 #captcha-footer {
     display: flex;
     align-items: center;
-    margin-top: 10px;
-    justify-content: space-between;
 }
 
 .captcha-logo {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
 }
 
 .captcha-footer-text {
-    font-size: 12px;
+    font-size: 11px;
     color: #777;
     text-align: left;
 }
@@ -104,4 +112,31 @@ body {
 .captcha-privacy {
     text-decoration: underline;
     cursor: pointer;
+}
+
+/* 공포 화면 */
+#scary-screen {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: black;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* 깜빡이는 효과 */
+#scary-screen.blink {
+    animation: blinkEffect 0.2s alternate infinite;
+}
+
+/* 깜빡이는 애니메이션 */
+@keyframes blinkEffect {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+#scary-image {
+    width: 100vw; height: 100vh; object-fit: cover;
+    filter: invert(1);
 }

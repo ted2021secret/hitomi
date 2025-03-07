@@ -8,11 +8,11 @@ body {
 #captcha { 
     border: 1px solid #d3d3d3; 
     display: inline-block; 
-    padding: 15px; 
+    padding: 20px; 
     background: white;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    font-size: 14px;
+    font-size: 16px;
     user-select: none;
 }
 
@@ -20,6 +20,7 @@ body {
     display: flex;
     align-items: center;
     cursor: pointer;
+    font-size: 18px;
 }
 
 #captcha-box {
@@ -28,16 +29,15 @@ body {
 
 /* 체크박스 스타일 */
 .checkmark {
-    width: 20px;
-    height: 20px;
-    border: 2px solid #999;
+    width: 28px;
+    height: 28px;
+    border: 3px solid #999;
     display: inline-block;
-    margin-right: 8px;
-    border-radius: 3px;
+    margin-right: 12px;
+    border-radius: 4px;
     position: relative;
 }
 
-/* 체크박스 클릭 시 스타일 */
 #captcha-box:checked + .checkmark {
     background: #4285F4;
     border-color: #4285F4;
@@ -46,26 +46,30 @@ body {
 #captcha-box:checked + .checkmark::after {
     content: '✔';
     color: white;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
     position: absolute;
-    left: 3px;
+    left: 6px;
     top: -2px;
 }
 
-/* reCAPTCHA 스타일 */
+#captcha-label span {
+    font-size: 18px;
+}
+
+/* reCAPTCHA 아이콘 스타일 */
 #captcha-footer {
     display: flex;
     align-items: center;
-    margin-top: 8px;
+    margin-top: 12px;
     color: #666;
-    font-size: 12px;
+    font-size: 14px;
 }
 
-#captcha-footer img {
-    width: 24px;
-    height: 24px;
-    margin-right: 5px;
+#captcha-footer .captcha-logo {
+    width: 48px;
+    height: 48px;
+    margin-right: 8px;
 }
 
 /* 공포 화면 */
